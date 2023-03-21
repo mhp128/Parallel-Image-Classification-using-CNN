@@ -1,1 +1,1 @@
-# -APP-Image-Classification-using-CNN
+# [APP] Image Classification using Convolution Neural Network
