@@ -1,7 +1,11 @@
 # [APP] Image Classification using Convolution Neural Network
-List of members: Mai Hồng Phúc - 19120620
-                 Hoàng Anh Quân -19120628
-                 Nguyễn Anh Quốc - 19120633
+##List of members:
+
+Mai Hồng Phúc - 19120620
+
+Hoàng Anh Quân -19120628
+
+Nguyễn Anh Quốc - 19120633
                  
 Keywords:  CNN, parallel programming, image classification, CUDA, Deep learning
 
