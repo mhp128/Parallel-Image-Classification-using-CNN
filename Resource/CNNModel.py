@@ -1,5 +1,26 @@
-from layers import Layer
+# @title Build CNN model
 import numpy as np
+from numba import cuda
+import time
+# from CNNModel import CNNModel
+# from layers import Convolution, Flatten, MaxPool2D, Dense
+
+
+class Layer():
+
+    def forward(self, inputs):
+        pass
+
+    def backward(self, output_gradient, learning_rate):
+        pass
+
+    def get_out_shape(self):
+        pass
+
+    def init_weight(self):
+        pass
+# from layers_v1 import Layer
+# import numpy as np
 
 
 class CNNModel:
@@ -63,3 +84,27 @@ class CNNModel:
     def use_device(self, value):
         for layer in self.layers:
             output = layer.use_device = value
+
+
+class Flatten(Layer):
+    def __init__(self, input_shape=(28, 28, 1)):
+        self.input_shape = input_shape
+        pass
+
+    def get_out_shape(self):
+        t = 1
+        for i in self.input_shape:
+            t *= i
+        return t
+
+    def forward(self, inputs):
+        self.inputs = inputs
+        assert self.input_shape == inputs.shape[1:], "Input shape incorrect"
+        return inputs.reshape(inputs.shape[0], -1)
+
+    def backward(self, output_gradient, learning_rate):
+        shape = self.inputs.shape
+        return output_gradient.reshape(shape)
+
+    def init_weight(self):
+        pass
